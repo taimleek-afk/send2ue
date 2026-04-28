@@ -21,7 +21,7 @@ A one-click solution for sending assets from Blender to Unreal Engine.
 
 <p align="center">
   <a href="https://github.com/taimleek-afk/send2ue/releases?q=Send+to+Unreal&expanded=true">
-    <img src="https://img.shields.io/badge/⬇%20Download%20Addon-blue?style=for-the-badge" alt="Download Addon"/>
+    <img src="https://img.shields.io/badge/⬇%20Download%20Addon-blue?style=for-the-badge&logoWidth=30" height="60" alt="Download Addon"/>
   </a>
 </p>
 
