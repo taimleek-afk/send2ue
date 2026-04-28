@@ -210,10 +210,10 @@ def get_extra_property_group_data_as_dictionary(property_group, only_key=None):
 
 
 def get_rpc_response_timeout(self):
-    """
-    Overrides getter method for the rpc_response_timeout property.
-    """
-    return self.rpc_response_timeout_proxy_value
+    value = self.rpc_response_timeout_proxy_value
+    if value is None or value <= 0:
+        return 60
+    return value
 
 
 def set_property_group_with_dictionary(property_group, data):
@@ -249,6 +249,8 @@ def set_rpc_response_timeout(self, value):
     Overrides setter method on rpc_response_timeout property to update the
     environment variable on the rpc instance as well.
     """
+    if value is None or value <= 0:
+        value = 60
     if unreal.is_connected():
         unreal.set_rpc_env('RPC_TIME_OUT', value)
     os.environ['RPC_TIME_OUT'] = str(value)

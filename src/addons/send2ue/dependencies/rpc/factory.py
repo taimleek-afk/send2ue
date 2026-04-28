@@ -149,14 +149,15 @@ class RPCFactory:
         # get the docstring from the code
         doc_string = self._get_docstring(code, function.__name__)
 
+        # remove the entire docstring block (including triple quotes) before inserting imports
+        if doc_string:
+            joined = '\n'.join(code)
+            joined = re.sub(r'\s*(\'\'\'|""").*?\1', '', joined, count=1, flags=re.DOTALL)
+            code = [line for line in joined.split('\n') if line.strip()]
+
         # get import code and insert them inside the function
         import_code = self._get_callstack_references(code, function)
         code.insert(1, import_code)
-
-        # remove the doc string
-        if doc_string:
-            code = '\n'.join(code).replace(doc_string, '')
-            code = [line for line in code.split('\n') if not all([char == '"' or char == "'" for char in line.strip()])]
 
         return code
 

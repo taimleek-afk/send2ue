@@ -29,7 +29,7 @@ def run_in_main_thread(callable_instance, *args):
     :param call callable_instance: A callable.
     :return: The return value of any call from the client.
     """
-    timeout = int(os.environ.get('RPC_TIME_OUT', 60))
+    timeout = max(int(os.environ.get('RPC_TIME_OUT', 60)), 60)
 
     globals().pop(RETURN_VALUE_NAME, None)
     globals().pop(ERROR_VALUE_NAME, None)

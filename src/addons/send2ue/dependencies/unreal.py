@@ -183,6 +183,8 @@ def bootstrap_unreal_with_rpc_server():
             import bpy
             from .. import __package__ as base_package
             rpc_response_timeout = bpy.context.preferences.addons[base_package].preferences.rpc_response_timeout
+            if not rpc_response_timeout or rpc_response_timeout <= 0:
+                rpc_response_timeout = 60
             dependencies_path = os.path.dirname(__file__)
             result = run_commands(
                 [
