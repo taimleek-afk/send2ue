@@ -4,11 +4,6 @@ nav:
     - Home: index.md
     - Addons: 
         - Send to Unreal: '!include ./docs/send2ue/mkdocs.yml'
-        - UE to Rigify: '!include ./docs/ue2rigify/mkdocs.yml'
-    - Contributing: 
-        - Help Develop: contributing/development.md
-        - Help Document: contributing/documentation.md
-        - Help Test: contributing/testing.md
 
 
 markdown_extensions:
@@ -29,7 +24,7 @@ plugins:
         prompt_literal_start: [$, '>', '>>>']
         title: shell
     search:
-        separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+        separator: '[\s\-,:!=\[\]()\"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
 theme:
     features:
